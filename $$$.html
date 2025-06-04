@@ -1,0 +1,1466 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Pixel & Pen | Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" href="https://i.postimg.cc/MGspws56/IMG-20250531-212126.png"type="image/png">
+  <style>
+  html {
+  scroll-behavior: smooth;
+  }
+  #backToTop {
+     display: none;
+     position: fixed;
+     bottom: 30px;
+     right: 30px;
+     background: #1abc9c;
+     color: white;
+     border: none;
+     padding: 12px 16px;
+     border-radius: 50%;
+     cursor: pointer;
+     font-size: 20px;
+     box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+   }
+    :root {
+      --primary: #1abc9c;
+      --primary-dark: #159c80;
+      --bg: #fff;
+      --fg: #222;
+      --muted: #888;
+      --border: #eee;
+      --radius: 12px;
+      --section-padding: 4.5rem 0 3rem 0;
+      --shadow: 0 2px 16px rgba(26,188,156,0.07);
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      min-height: 100vh;
+      scroll-behavior: smooth;
+      letter-spacing: 0.01em;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; border-radius: var(--radius); }
+    nav {
+      width: 100%;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      box-shadow: var(--shadow);
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 20;
+    }
+    .container {
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 1.5rem;
+    }
+    .nav-links {
+      display: flex;
+      gap: 2.2rem;
+      align-items: center;
+    }
+    .nav-links a {
+      font-size: 1.01rem;
+      padding: 2px 0;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      border-bottom: 2px solid transparent;
+      transition: border 0.2s, color 0.2s;
+      position: relative;
+    }
+    .nav-links a i { font-size: 1.06em; }
+    .nav-links a:hover, .nav-links a.active {
+      border-bottom: 2.5px solid var(--primary);
+      color: var(--primary);
+    }
+    .nav-links a.active {
+    font-weight: bold;
+    border-bottom: 2px solid var(--primary);
+    color: var(--primary);
+    }
+    .resume-btn {
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;      /* Crucial for vertical centering */
+    gap: 10px;
+    font-size: 1.5rem;
+    line-height: 1.2;         /* Ensures enough height for icon & text */
+    }
+    .resume-btn i {
+    font-size: 1.2em;
+    display: flex;
+    align-items: center;
+    line-height: 1;           /* Prevents extra spacing */
+    margin-top: 1px;          /* Optional nudge to center visually */
+    }   
+    .resume-btn:hover {
+    background: var(--primary-dark);
+    box-shadow: 0 2px 12px rgba(26,188,156,0.16);
+    }
+    @media (max-width: 4096px) {  
+        .nav-links { 
+        display: none;
+        position: absolute;
+        top: 61px;
+        right: 24px;
+        background: var(--bg);
+        flex-direction: column;
+        gap: 1.1rem;
+        box-shadow: 0 8px 24px rgba(26,188,156,0.07);
+        padding: 1rem 2rem;
+        border-radius: var(--radius);
+        min-width: 180px;
+      }
+      .nav-links.open { display: flex; }
+      .nav-toggle { display: flex; }
+    }
+.nav-content {
+  position: relative;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.nav-toggle {
+  margin-left: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  cursor: pointer;
+}
+
+.nav-toggle span {
+  width: 25px;
+  height: 3px;
+  background-color: black;
+}
+
+.nav-logo {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%); 
+  font-size: 20px;
+  font-weight: bold;
+}
+
+    section {
+      padding: var(--section-padding);
+    }
+    #home {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 60vh;
+      text-align: center;
+    }
+    #home h1 {
+      font-size: 2.7rem;
+      margin-bottom: 0.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      line-height: 1.18;
+    }
+    #home h1 .highlight {
+      color: var(--primary);
+    }
+    #home p {
+      font-size: 1.18rem;
+      color: var(--muted);
+      margin-bottom: 2.2rem;
+      max-width: 650px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    #home ul {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5em;
+      justify-content: center;
+      color: var(--fg);
+      font-size: 1rem;
+      margin-bottom: 2.1rem;
+      margin-top: 0.7em;
+    }
+    #home ul li {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 0.45em;
+      background: #f7fefc;
+      padding: 0.5em 1.1em;
+      border-radius: 18px;
+      box-shadow: 0 1px 4px rgba(26,188,156,0.05);
+      font-weight: 500;
+    }
+    #home ul li i { color: var(--primary); }
+    #home .cta-btn {
+      background: var(--primary);
+      color: #fff;
+      padding: 0.85rem 2.25rem;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.13rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s;
+      margin-top: 1.2rem;
+      box-shadow: 0 1px 8px rgba(26,188,156,0.10);
+      display: inline-flex;
+      align-items: center;
+      gap: 0.8em;
+    }
+    #home .cta-btn i { font-size: 1.08em; }
+    #home .cta-btn:hover {
+      background: var(--primary-dark);
+      box-shadow: 0 2px 16px rgba(26,188,156,0.15);
+    }
+    .socials {
+      margin-top: 2.3rem;
+      display: flex;
+      gap: 1.3rem;
+      justify-content: center;
+    }
+    .socials a {
+      color: var(--primary);
+      font-size: 1.6rem;
+      border-radius: 50%;
+      transition: background 0.2s, color 0.2s, transform 0.2s;
+      padding: 0.45em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .socials a:hover {
+      background: var(--primary);
+      color: #fff;
+      transform: translateY(-2px) scale(1.13);
+      box-shadow: 0 2px 12px rgba(26,188,156,0.10);
+    }
+
+
+    #about {
+      text-align: center;
+    }
+    .about-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 1.1rem;
+      border: 3px solid var(--primary);
+      box-shadow: 0 2px 18px rgba(26,188,156,0.07);
+    }
+    .about-text {
+      color: var(--muted);
+      font-size: 1.13rem;
+      margin-bottom: 1.5rem;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .about-skills {
+      display: flex;
+      justify-content: center;
+      gap: 1.3rem;
+      flex-wrap: wrap;
+      margin-top: 1.1rem;
+    }
+    .about-skill {
+      background: #f9fdfa;
+      color: var(--primary);
+      border-radius: 18px;
+      padding: 0.55em 1.2em;
+      font-size: 1em;
+      display: flex;
+      align-items: center;
+      gap: 0.5em;
+      box-shadow: 0 1px 4px rgba(26,188,156,0.05);
+    }
+    .about-skill i { font-size: 1.05em; }
+    .about-journey {
+      margin-top: 2.2em;
+      text-align: left;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .about-journey h3 {
+      color: var(--primary);
+      font-size: 1.08rem;
+      margin-bottom: 0.7em;
+      font-weight: 600;
+      letter-spacing: .04em;
+    }
+      .about-section {
+    max-width: 700px;
+    margin: 40px auto;
+    text-align: center;
+    }
+   .scrolling-text {
+   background-color: #1abc9c;
+   color: white;
+   padding: 8px; /* ✅ fixed spacing */
+   overflow: hidden;
+   position: relative;
+   font-weight: bold;
+   width: 100vw; /* ✅ make it span the full screen width */
+   box-sizing: border-box; /* ✅ include padding in width */
+   margin: 0; /* optional: remove margin that might cause centering */
+   }
+   .scrolling-text span {
+   display: inline-block;
+   padding-left: 100%;
+   animation: scroll-left 10s linear infinite;
+   }
+   @keyframes scroll-left {
+   0% { transform: translateX(0); }
+   100% { transform: translateX(-100%); }
+   }
+    .timeline {
+      border-left: 3px solid var(--primary);
+      margin-left: 1.1em;
+      padding-left: 1.6em;
+      display: flex;
+      flex-direction: column;
+      gap: 1.2em;
+    }
+    .timeline-event {
+      position: relative;
+    }
+    .timeline-event:before {
+      content: '';
+      position: absolute;
+      left: -2.05em;
+      top: 5px;
+      width: 12px;
+      height: 12px;
+      background: var(--primary);
+      border-radius: 50%;
+      border: 2px solid #fff;
+      box-shadow: 0 0 0 2px var(--primary);
+    }
+    .timeline-event span {
+      font-size: 0.97em;
+      color: var(--muted);
+      margin-right: 0.8em;
+      font-weight: 500;
+    }
+    .timeline-event strong {
+      color: var(--fg);
+      font-weight: 600;
+    }
+
+
+    .services-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.6rem;
+      justify-content: start;
+      margin-top: 1.5rem;
+    }
+    .service {
+      flex: 1 1 240px;
+      background: #f7fefc;
+      padding: 1.6rem 1.5rem 1.3rem 1.5rem;
+      border-radius: var(--radius);
+      min-width: 200px;
+      box-shadow: 0 1px 6px rgba(26,188,156,0.06);
+      transition: box-shadow 0.15s, transform 0.15s;
+      border: 1.5px solid #e2f7f2;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0.7em;
+      position: relative;
+    }
+    .service:not(:last-child):after {
+      content: '';
+      display: none;
+    }
+    .service h3 {
+      font-size: 1.18rem;
+      color: var(--primary);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.7em;
+      margin-bottom: 0.4em;
+    }
+    .service p {
+      font-size: 1rem;
+      color: #444;
+      margin-left: 2px;
+      margin-bottom: 0.5em;
+    }
+    .service ul {
+      margin: 0.2em 0 0.1em 0.2em;
+      padding-left: 1.2em;
+      font-size: 0.98em;
+      color: #333;
+    }
+    .service ul li {
+      margin-bottom: 0.35em;
+      list-style: disc;
+    }
+    .service i {
+      font-size: 1.36em;
+      color: var(--primary);
+      margin-bottom: 2px;
+    }
+    .service-divider {
+      border-top: 1px solid #e2f7f2;
+      margin: 1.1em 0;
+      width: 100%;
+    }
+    .service-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6em;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+    padding-left: 0;
+    list-style: none;
+    }
+    .service-tag {
+    background: #e5f7f3;
+    color: var(--primary);
+    border-radius: 14px;
+    padding: 0.3em 1.1em;
+    font-size: 0.98em;
+    display: flex;
+    align-items: center;
+    gap: 0.4em;
+    font-weight: 500;
+    box-shadow: 0 1px 4px rgba(26,188,156,0.05);
+    border: 1px solid #d4f3eb;
+    margin: 0;
+    }
+    .service-tag i {
+    font-size: 1em;
+    margin-right: 0.25em;
+    }
+
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.7rem;
+      margin-top: 1.5rem;
+    }
+    .portfolio-item {
+      background: #f7fefc;
+      border-radius: var(--radius);
+      box-shadow: 0 1px 6px rgba(26,188,156,0.06);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      border: 1.5px solid #e2f7f2;
+      transition: transform 0.15s, box-shadow 0.15s, border-color 0.15s;
+    }
+    .portfolio-item:hover {
+      transform: scale(1.03);
+      box-shadow: 0 4px 20px rgba(26,188,156,0.13);
+      border-color: var(--primary);
+    }
+    .portfolio-thumb {
+      background: #e5f7f3;
+      height: 150px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #aaa;
+      font-size: 1.5rem;
+      font-weight: 500;
+      overflow: hidden;
+    }
+    .portfolio-thumb img {
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      border-radius: 0;
+    }
+    .portfolio-info {
+      padding: 1rem 1.1rem 1.2rem 1.1rem;
+      flex: 1 1 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0.37em;
+    }
+    .portfolio-info h4 {
+      font-size: 1.13rem;
+      margin-bottom: 0.1rem;
+      color: var(--fg);
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.4em;
+    }
+    .portfolio-info p {
+      font-size: 0.97rem;
+      color: #555;
+      margin-bottom: 0.1em;
+    }
+    .portfolio-tags {
+      display: flex;
+      gap: 0.5em;
+      margin: 0.4em 0 0.6em 0;
+      flex-wrap: wrap;
+    }
+    .portfolio-tag {
+      background: #e5f7f3;
+      color: var(--primary);
+      font-size: 0.88em;
+      border-radius: 8px;
+      padding: 0.2em 0.75em;
+      display: flex;
+      align-items: center;
+      gap: 0.3em;
+    }
+    .portfolio-info a {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3em;
+      margin-top: 0.3rem;
+      font-size: 0.98rem;
+      color: var(--primary);
+      border-bottom: 1px dotted var(--primary);
+      transition: color 0.2s;
+    }
+    .portfolio-info a i { font-size: 1.1em; }
+    .portfolio-info a:hover {
+      color: var(--primary-dark);
+    }
+
+
+    #process {
+      max-width: 750px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .process-steps {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1.7em;
+      margin-top: 1.8em;
+    }
+    .process-step {
+      background: #f7fefc;
+      border: 1.5px solid #e2f7f2;
+      border-radius: var(--radius);
+      box-shadow: 0 1px 6px rgba(26,188,156,0.06);
+      padding: 1.3em 1.3em 1.1em 1.3em;
+      min-width: 180px;
+      max-width: 220px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.7em;
+      transition: box-shadow 0.15s, transform 0.15s, border-color 0.15s;
+    }
+    .process-step:hover {
+      box-shadow: 0 4px 20px rgba(26,188,156,0.13);
+      transform: translateY(-2px) scale(1.03);
+      border-color: var(--primary);
+    }
+    .process-step i {
+      color: var(--primary);
+      font-size: 2.1em;
+      margin-bottom: 0.1em;
+    }
+    .process-step-title {
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 0.2em;
+      font-size: 1.05em;
+    }
+    .process-step-desc {
+      color: #444;
+      font-size: 0.99em;
+    }
+
+    /* TESTIMONIALS */
+    #testimonials {
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: center;
+    }
+    .testimonials-list {
+      margin-top: 2em;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.3em;
+      justify-content: center;
+    }
+    .testimonial {
+      background: #f7fefc;
+      border-radius: var(--radius);
+      border: 1.5px solid #e2f7f2;
+      box-shadow: 0 1px 6px rgba(26,188,156,0.06);
+      padding: 1.2em 1.2em 1.1em 1.2em;
+      min-width: 220px;
+      max-width: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.7em;
+      position: relative;
+    }
+    .testimonial-avatar {
+      width: 50px; height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2.5px solid var(--primary);
+      margin-bottom: 0.3em;
+    }
+    .testimonial-text {
+      color: #555;
+      font-size: 1em;
+      margin-bottom: 0.3em;
+    }
+    .testimonial-name {
+      color: var(--primary);
+      font-weight: 600;
+      font-size: 1em;
+    }
+    .testimonial-role {
+      color: var(--muted);
+      font-size: 0.92em;
+      margin-bottom: 0.3em;
+    }
+    .testimonial-stars i {
+      color: #ffd700;
+      font-size: 1.03em;
+    }
+
+
+    #contact {
+      max-width: 1024px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .contact-info {
+      font-size: 1.07rem;
+      margin-bottom: 1.2rem;
+      color: var(--fg);
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5em;
+    }
+    .contact-info a {
+      color: var(--primary);
+      font-weight: 500;
+      text-decoration: underline;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.3em;
+    }
+    .contact-info a:hover { color: var(--primary-dark);}
+    #contact form {
+      display: flex;
+      flex-direction: column;
+      gap: 1.08rem;
+      margin-top: 1.2rem;
+      background: #f7fefc;
+      border-radius: var(--radius);
+      box-shadow: 0 1px 6px rgba(26,188,156,0.05);
+      padding: 1.6em;
+      border: 1.5px solid #e2f7f2;
+    }
+    #contact input,
+    #contact textarea {
+      padding: 0.78rem;
+      border: 1.5px solid #e2f7f2;
+      border-radius: 7px;
+      font-size: 1rem;
+      width: 100%;
+      resize: none;
+      background: #f9fdfa;
+      color: var(--fg);
+      transition: border-color 0.18s, box-shadow 0.18s;
+    }
+    #contact input:focus,
+    #contact textarea:focus {
+      border-color: var(--primary);
+      outline: none;
+      box-shadow: 0 2px 10px rgba(26,188,156,0.07);
+    }
+    #contact button {
+      width: fit-content;
+      background: var(--primary);
+      color: #fff;
+      border: none;
+      padding: 0.7rem 2.1rem;
+      border-radius: 25px;
+      font-size: 1.08rem;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.2s, box-shadow 0.2s;
+      display: flex;
+      align-items: center;
+      gap: 0.6em;
+      margin-top: 0.7em;
+      box-shadow: 0 1px 8px rgba(26,188,156,0.07);
+    }
+    #contact button i { font-size: 1.1em; }
+    #contact button:hover {
+      background: var(--primary-dark);
+      box-shadow: 0 2px 12px rgba(26,188,156,0.17);
+    }
+
+
+    footer {
+      text-align: center;
+      font-size: 0.97rem;
+      color: var(--muted);
+      padding: 2.4rem 0 1.1rem 0;
+      background: none;
+      letter-spacing: 0.05em;
+    }
+    .footer-socials {
+      margin-bottom: 0.5em;
+      display: flex;
+      justify-content: center;
+      gap: 1.3em;
+    }
+    .footer-socials a {
+      color: var(--primary);
+      font-size: 1.2em;
+      transition: color 0.2s;
+    }
+    .footer-socials a:hover { color: var(--primary-dark); }
+
+    @media (max-width: 4096px) {
+      .container { max-width: 100%; }
+      #about, #services, #portfolio, #process, #testimonials, #contact {
+        max-width: 98vw;
+      }
+    }
+    @media (max-width: 4096px) {
+      h2 { font-size: 1.3rem; }
+      .nav-content { flex-direction: column; align-items: flex-start; }
+      .portfolio-thumb { height: 90px; font-size: 1.08rem; }
+      section { padding: 3.2rem 0 2rem 0; }
+      .services-list { flex-direction: column; }
+      .about-img { width: 90px; height: 90px; }
+      .about-skills { justify-content: flex-start; gap: 0.7em;}
+      .portfolio-grid { gap: 0.9em;}
+      #contact form { padding: 1.1em;}
+      .process-steps, .testimonials-list { flex-direction: column; gap: 0.9em;}
+    }
+    .freelance-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 2.5rem;
+    margin-top: 2rem;
+    }
+    
+    .freelance-card {
+    background: white;
+    border: 1px solid #e0f7f5;
+    border-radius: 16px;
+    padding: 2rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.04);
+    }
+    
+    .freelance-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 35px rgba(0, 0, 0, 0.08);
+    }
+    
+    .freelance-card img {
+    height: 40px;
+    margin-bottom: 1rem;
+    object-fit: contain;
+    }
+    
+    .freelance-card h3 {
+    font-size: 1.4rem;
+    color: #1abc9c;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    }
+    
+    .freelance-card p {
+    font-size: 0.95rem;
+    color: #444;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    }
+    
+    .freelance-button {
+    display: inline-block;
+    background-color: #1abc9c;
+    color: #fff;
+    padding: 0.7rem 1.5rem;
+    font-size: 0.95rem;
+    font-weight: 600;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    }
+    
+    .freelance-button:hover {
+    background-color: #16a085;
+    box-shadow: 0 4px 14px rgba(22, 160, 133, 0.3);
+    }
+    
+    @media (max-width: 4096px) {
+    .freelance-card {
+    padding: 1.5rem;
+    }
+    
+    .freelance-card h3 {
+    font-size: 1.2rem;
+    }
+    
+    .freelance-card p {
+    font-size: 0.9rem;
+    }
+    
+    .freelance-button {
+    font-size: 0.9rem;
+    padding: 0.6rem 1.2rem;
+    }
+    }
+    /* Main container holding the cards */
+    .freelance-grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem; /* space between cards */
+    padding: 1rem;
+    }
+    
+    /* Individual cards */
+    .freelance-card {
+    flex: 1 1 300px; /* grow, shrink, and minimum width */
+    max-width: 400px; /* don't grow beyond this */
+    background-color: white;
+    padding: 1.5rem;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+    border-radius: 12px;
+    box-sizing: border-box;
+    text-align: center;
+    transition: transform 0.3s ease;
+    }
+    
+    .freelance-card:hover {
+    transform: translateY(-5px);
+    }
+    
+    /* Optional: Typography for better look */
+    .freelance-card h3 {
+    color: #0abda0;
+    margin-bottom: 1rem;
+    }
+    
+    .freelance-card p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+    }
+    
+    .freelance-card a {
+    background-color: #0abda0;
+    color: white;
+    padding: 0.6rem 1.2rem;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    }
+    
+    .freelance-card a:hover {
+    background-color: #089f87;
+    }
+    
+    /* Make sure viewport scales properly on all devices */
+    @media screen and (max-width: 1024px) {
+    .freelance-card {
+    flex: 1 1 100%;
+    }
+    }
+    /* GLOBAL FIX FOR CONTAINERS */
+    .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    }
+    
+    /* SPECIFIC FIX FOR THE FREELANCE SECTION */
+    #freelance-services > div {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    }
+    
+    /* FIX: portfolio grid, freelance grid and services alignment */
+    .portfolio-grid,
+    .freelance-grid,
+    .services-list {
+    justify-content: center;
+    }
+    
+    /* IMPROVED LAYOUT FOR WIDER SCREENS */
+    @media (min-width: 1024px) {
+    .freelance-card {
+    flex: 1 1 300px;
+    max-width: 340px;
+    }
+    
+    .service {
+    flex: 1 1 300px;
+    max-width: 360px;
+    }
+    
+    .portfolio-item {
+    max-width: 360px;
+    }
+    }
+    
+    /* OPTIONAL: fix large-section padding for desktop */
+    section {
+    padding: 4rem 0 3rem 0;
+    }
+    @media screen and (min-width: 1024px) {
+    .process-step {
+    flex: 1 1 300px;
+    max-width: 360px;
+    }
+    
+    .testimonial {
+    flex: 1 1 300px;
+    max-width: 360px;
+    }
+    
+    .process-steps,
+    .testimonials-list {
+    justify-content: center;
+    }
+    }
+    h2 {
+    word-break: keep-all;
+    white-space: normal;
+    overflow-wrap: break-word;
+    }
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    }
+    body, html {
+    height: 100%;
+    min-height: 100vh;
+    }
+    .logo {
+    height: 105px;
+    position:absolute;
+    left:50%;
+    transform:translateX(-50%); 
+    object-fit:contain;/* about h1 size */
+    }
+    .navbar {
+    display: flex;
+    align-items: center;        /* vertical centering */
+    justify-content: space-between;
+    height: 120px;              /* control your navbar height here */
+    padding: 0 0px;
+    background-color: #f8f8f8;
+    }
+    
+    .logo-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;    /* horizontal centering */
+    align-items: center;        /* vertical centering */
+    }
+    .spacer {
+    visibility: hidden; /* Keeps space but hides the box */
+    }
+    .logo {
+    height: 180px;
+    object-fit: contain;
+    }
+    #darkModeToggle  {
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
+    padding: 12px 16px;
+    background-color: #1abc9c;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 20px;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    
+    #darkModeToggle:hover {
+    background-color: #1abc9c;
+    }
+    
+    body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+    }
+    #darkModeToggle, #backToTop {
+    position: fixed;
+    bottom: 20px; /* Aligns both horizontally */
+    padding: 12px 16px;
+    background-color: #1abc9c;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+    font-size: 20px;
+    transition: background-color 0.3s, color 0.3s;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    }
+    
+    #darkModeToggle {
+    left: 20px;
+    }
+    
+    #backToTop {
+    right: 20px;
+    }
+    
+    #darkModeToggle:hover,
+    #backToTop:hover {
+    background-color: #1abc9c;
+    }
+    body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+    }
+    
+    /* Explicitly style strong in dark mode */
+    body.dark-mode strong {
+    color: #ffffff;
+    }
+    
+    /* Optional: handle other elements too */
+    body.dark-mode a {
+    color: #90caf9; /* Light blue for links */
+    }
+    
+    body.dark-mode h1, 
+    body.dark-mode h2, 
+    body.dark-mode h3 
+    {
+    color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+  <nav>
+  <!-- HTML -->
+
+    <div class="container nav-content">
+    <div class="nav-toggle" id="nav-toggle">
+    <span></span><span></span><span></span>
+    </div>
+        <div class="navbar">
+        <div class="logo-container">
+        <img src="https://i.postimg.cc/MGspws56/IMG-20250531-212126.png" alt="Logo" class="logo">
+        </div>
+        </div>
+        </div>
+      <div class="nav-links" id="nav-links">
+        <a href="#home" class="active"><i class="fas fa-home"></i>Home</a>
+        <a href="#about"><i class="fas fa-user"></i>About</a>
+        <a href="#services"><i class="fas fa-cogs"></i>Services</a>
+        <a href="#portfolio"><i class="fas fa-briefcase"></i>Portfolio</a>
+        <a href="#process"><i class="fas fa-stream"></i>Process</a>
+        <a href="#testimonials"><i class="fas fa-comment-dots"></i>Testimonials</a>
+         <a href="#freelance-services"><i class="fas fa-globe"></i>My sites</a>        
+        <a href="#contact"><i class="fas fa-envelope"></i>Contact</a>
+
+        <a href="resume.pdf" class="resume-btn" download><i class="fas fa-file-arrow-down"></i> Download Resume</a>
+      </div>
+  </nav>
+  <section id="home">
+    <h1>Designing isn’t just what I do —  <span class="highlight">it's who I am ,</span> <br>I'm <span class="highlight">Dhrubaditya Das</span></h1>
+     <h2> <span class="highlight"> and welcome to my portfolio! </span></h2>
+      <div class="scrolling-text" style="text-align:center"><span><b>ATTENTION!</b><br>It is recommended <br>that you open this website in mobile-view</span></div>  <section class="about-section">
+    <h1 style="color:#1abc9c">WHO AM I?</h1>
+    <p style="color:#1abc9c">
+      <i class="fas fa-laptop-code" style="color:var(--primary);margin-right:0.4em;"></i><b>
+      I'm a freelance graphic designer crafting bold, intentional visuals that <u>bring brands to life</u> through logos, brand identity, and digital design.</b>
+    </p>
+    <ul>
+      <li><i class="fas fa-bolt"></i>Fast &amp; Responsive</li>
+      <li><i class="fas fa-mobile-alt"></i>Mobile-Friendly</li>
+      <li><i class="fas fa-eye"></i>Pixel-Perfect</li>
+      <li><i class="fas fa-user-friends"></i>User-Centric</li>
+      <li><i class="fas fa-dollar"></i>Budget friendly</li>
+    </ul>
+    <a href="#contact" class="cta-btn"><i class="fas fa-paper-plane"></i>Let's Work Together</a>
+    <div class="socials">
+      <a href="https://github.com/yourusername" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://wa.me/9830370896" title="Whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://Instagram.com/forged_in_fire__" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:itzddinanutshell@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+  </section>
+  <section id="about">
+    <h2>About Me</h2>
+    <img src="https://i.postimg.cc/nh58sPKn/IMG-20250524-223430.jpg" alt="Your Name" class="about-img" style=" width:150px; height:150px; border-radius:50%; object-fit:cover">
+    <p class="about-text">
+      I'm a creative freelance professional specializing in <span style="color:var(--primary);font-weight:500;"> elegant and clean logo design which reflects your brand identity and core values </span>. My approach is rooted in <b>clarity, subtlety,</b> and <b>precision.</b><br><br>
+      I help businesses and individuals establish their online presence with modern, responsive, and bold logos , business cards and more !
+    </p>
+        <h2 style="color:#1abc9c"> SKILLSET</h2>
+    <div class="about-skills">
+      <span class="about-skill"><i class="fab fa-html5"></i>HTML5</span>
+      <span class="about-skill"><i class="fab fa-css3-alt"></i>CSS3</span>
+      <span class="about-skill"><i class="fas fa-user"></i>Client-focused</span>
+      <span class="about-skill"><i class="fas fa-palette"></i>Branding</span>
+      <span class="about-skill"><i class="fas fa-bolt"></i>Performance</span>
+      <span class="about-skill"><i class="fas fa-lightbulb"></i>Creativity</span>
+              <span class="about-skill"><i class="fas fa-brush"></i>Graphics Design</span>
+       <span class="about-skill"><i class="fas fa-clock"></i>Punctual</span>
+    </div>
+    <div class="about-journey">
+      <h3><i class="fas fa-road"></i> My Journey</h3>
+      <div class="timeline">
+        <div class="timeline-event"><span>2021</span><strong>Started Freelancing</strong> ” Designed first logo for a local business</div>
+        <div class="timeline-event"><span>2022</span><strong>Published 10+ Projects</strong> ” Grew client base and skills.</div>
+        <div class="timeline-event"><span>2023</span><strong>Branding Focus</strong> ” Helped brands revamp their online identity.</div>
+        <div class="timeline-event"><span>2024</span><strong>Expanded Portfolio</strong> ” Specialized in branding and graphics</div>
+      </div>
+    </div>
+  </section>
+  <section id="services">
+  <h2 style="color:#1abc9c">Services</h2>
+  <div class="services-list">
+  <div class="service">
+  <h3><i class="fas fa-paint-brush"></i>Logo Design</h3>
+  <p>Make your brand unforgettable with a custom logo that captures your unique identity. Whether you're just starting out or rebranding, I'll create a design that's modern, memorable, everlasting and tailored specifically to your vision.</p>
+  <ul class="service-tags">
+  <li class="service-tag"><i class="fas fa-pencil-ruler"></i>Pixel-perfect UI</li>
+  <li class="service-tag"><i class="fas fa-palette"></i>Brand colors &amp; typography</li>
+  <li class="service-tag"><i class="fas fa-object-group"></i>Wireframes &amp; mockups</li>
+  </ul>
+  </div>
+  <div class="service-divider"></div>
+  <div class="service">
+  <h3><i class="fas fa-code"></i>Web Development</h3>
+  <p>Clean, efficient HTML &amp; CSS code for fast, responsive, and accessible static webpages.</p>
+  <ul class="service-tags">
+  <li class="service-tag"><i class="fas fa-mobile-alt"></i>Mobile-first layouts</li>
+  <li class="service-tag"><i class="fas fa-search"></i>SEO best practices</li>
+  <li class="service-tag"><i class="fas fa-rocket"></i>Optimized performance</li>
+  </ul>
+  </div>
+  <div class="service-divider"></div>
+  <div class="service">
+  <h3><i class="fas fa-bullhorn"></i>Business Cards</h3>
+  <p>High-converting Business cards for products, events, or lead generation campaigns to attract more and more clients.</p>
+  <ul class="service-tags">
+  <li class="service-tag"><i class="fas fa-bullseye"></i>Conversion-focused copy</li>
+  <li class="service-tag"><i class="fas fa-mouse-pointer"></i>Clear and Impressive</li>
+  <li class="service-tag"><i class="fas fa-chart-bar"></i>Accurate</li>
+  </ul>
+  </div>
+  <div class="service-divider"></div>
+  <div class="service">
+  <h3><i class="fas fa-comments"></i>Consultation</h3>
+  <p>Not sure where to begin? Let's talk. Book a one-on-one consultation to get expert advice on branding, design, or web presence. I'll help you clarify your goals and plan your next move with confidence</p>
+  <ul class="service-tags">
+  <li class="service-tag"><i class="fas fa-lightbulb"></i>Brand strategy</li>
+  <li class="service-tag"><i class="fas fa-user-check"></i>Client satisfaction</li>
+  <li class="service-tag"><i class="fas fa-tasks"></i>Project planning</li>
+  </ul>
+  </div>
+  <div class="service">
+  <h3><i class="fas fa-pen"></i>Content Writer</h3>
+<p> World class content writing for you to attract professional clients with ease . Whether it's a script for your story , marketing messages , catchy captions for your YT videos or even blogging , you can always count on me!</p>
+  <ul class="service-tags">
+  <li class="service-tag"><i class="fas fa-lightbulb"></i>Ideas</li>
+  <li class="service-tag"><i class="fas fa-user-check"></i>Client satisfaction</li>
+  <li class="service-tag"><i class="fas fa-star"></i>Quality</li>
+  </ul>
+  </div>
+  <div class="service">
+  <h3><i class="fas fa-play"></i>Video Editing</h3>
+<p> From UGC ads videos to gaming videos , I will both create and edit them to your choice while ensuring that the quality of the delivered content remains uncompromised.</p>
+  <ul class="service-tags">
+  <li class="service-tag"><i class="fas fa-wrench"></i>Editing</li>
+  <li class="service-tag"><i class="fas fa-user"></i>Client based</li>
+  </ul>
+  </div>
+  <div class="service">
+  <h3><i class="fas fa-handshake"></i>Management</h3>
+<p> Want a leave for a few days? Or have more important work to do? Need help managing ? Yes you're at the right...uh oh...the best place! Whether it's your emails or your social media account that needs management or even an appointment that needs to be arranged,  it's all on me . Just scroll below and contact me </p> 
+  <ul class="service-tags">
+  <li class="service-tag"><i class="fas fa-clock"></i>Timely</li>
+  <li class="service-tag"><i class="fas fa-hand"></i>Commitment</li>
+  </ul>
+  </div>
+  <div class="service-divider"></div>
+  <div class="service">
+  <h3><i class="fas fa-plus"></i>More Services!</h3>
+  <p>Check out my <a href="#freelance-services"><u> Freelance Services </u></a> section to reach my platforms!</p>
+  </div>
+  </div>
+  </section>
+  <section id="portfolio">
+    <h2 style="color:#1abc9c">Portfolio</h2>
+    <div class="portfolio-grid">
+      <div class="portfolio-item">
+        <div class="portfolio-thumb"><img src="https://i.postimg.cc/x1sB8HqV/1000067276-x16-fast.png " alt="Project 1(PSC logo)" ></div>
+        <div class="portfolio-info">
+          <h4><i class="fas fa-desktop"></i>Modern Logo Design</h4>
+          <div class="portfolio-tags">
+            <span class="portfolio-tag"><i class="fas fa-palette"></i>Creative</span>
+            <span class="portfolio-tag"><i class="fas fa-star"></i>Minimalist</span>
+            <span class="portfolio-tag"><i class="fas fa-mobile-alt"></i>Responsive</span>
+          </div>
+          <p>
+Designed a sleek, minimalist logo for a local tech startup, combining geometric forms and bold typography to convey innovation and trust. Delivered a full branding package including logo variations and brand guidelines. <b>(One of my best logos)</b>
+          </p>
+          <a href="https://i.postimg.cc/x1sB8HqV/1000067276-x16-fast.png" target="_blank"><i class="fas fa-arrow-up-right-from-square"></i>View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-thumb"><img src="https://i.postimg.cc/1XBjTwV4/1000083755-x4-fast.png" alt="Project 2"></div>
+        <div class="portfolio-info">
+          <h4><i class="fas fa-book"></i>E-book cover design</h4>
+          <div class="portfolio-tags">
+            <span class="portfolio-tag"><i class="fas fa-palette"></i>Artistic</span>
+            <span class="portfolio-tag"><i class="fas fa-book"></i>Illustration</span>
+            <span class="portfolio-tag"><i class="fas fa-lightbulb"></i>Creative</span>
+          </div>
+          <p>
+          Created a powerful, genre-appropriate cover for the thriller Retribution, featuring bold visuals and clear typography. The author saw an increase in sales and was full of praise for the cover design!
+          </p>
+          <a href="https://i.postimg.cc/1XBjTwV4/1000083755-x4-fast.png" target="_blank"><i class="fas fa-arrow-up-right-from-square"></i>View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-thumb"><img src="https://i.postimg.cc/FKmfm02Z/Screenshot-2025-05-28-14-24-23-23-99c04817c0de5652397fc8b56c3b3817.jpg" alt="Project 3"></div>
+        <div class="portfolio-info">
+          <h4><i class="fas fa-calendar-alt"></i>Event Flyer</h4>
+          <div class="portfolio-tags">
+            <span class="portfolio-tag"><i class="fas fa-calendar-alt"></i>Event</span>
+            <span class="portfolio-tag"><i class="fas fa-user"></i>Attracts clients</span>
+          </div>
+          <p>
+            Designed an attractive event flyer for a local startup , which led to a 30% increase in their number of clients , earning them more profit and helping them grow their reach!
+          </p>
+          <a href="https://player.vimeo.com/video/1088325677?h=0758ed0ca0" target="_blank"><i class="fas fa-arrow-up-right-from-square"></i>View Project</a>
+        </div>
+      </div>
+      <div class="portfolio-item">
+        <div class="portfolio-thumb"><img src="https://i.postimg.cc/8zbbRfxM/1000084044-x4-fast.png" alt="Project 4"></div>
+        <div class="portfolio-info">
+          <h4><i class="fas fa-store"></i>Fantasy Novel Cover</h4>
+          <div class="portfolio-tags">
+            <span class="portfolio-tag"><i class="fas fa-palette"></i>Colourful</span>
+            <span class="portfolio-tag"><i class="fas fa-file"></i>Digital</span>
+          </div>
+          <p>
+             A mesmerizing , unique and strikingly relevant cover illustration for the novel "FALLEN" for a local author which garnered a lot of attention! <b>(P.S. one of my best works)</b> 
+          </p>
+          <a href="https://i.postimg.cc/8zbbRfxM/1000084044-x4-fast.png" target="_blank"><i class="fas fa-arrow-up-right-from-square"></i>View Project</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="freelance-services" style="background: #f9fdfc; padding: 5rem 1.5rem; font-family: 'Segoe UI', sans-serif;">
+  <div style="max-width: 1200px; margin: 0 auto; text-align: center;">
+  <h2 style="font-size: 2.75rem; color: #1abc9c; font-weight: 700; margin-bottom: 1rem;">
+  My Freelance Services
+  </h2>
+  <p style="font-size: 1.1rem; color: #555; max-width: 700px; margin: 0 auto 3rem;">
+  I am beginning to offer my expertise across one of the top freelance platforms- <b> Fiverr </b>.Connect with me and explore tailored services built to meet your goals.
+  </p>
+  
+  <div class="freelance-grid">
+  <!-- Fiverr -->
+  <div class="freelance-card">
+      <img src="https://freelogopng.com/images/all_img/1656737178fiverr-logo-png.png" alt="Fiverr Logo">
+  <h3>Fiverr</h3>
+  <p>Creative gigs delivered with precision and speed from branding to full-stack solutions.</p>
+  <a href="https://www.fiverr.com/libertydesignss" target="_blank" class="freelance-button">Visit Fiverr profile</a>
+  </div>
+  <section id="process">
+    <h2>How I Work</h2>
+    <div class="process-steps">
+      <div class="process-step">
+        <i class="fas fa-comments"></i>
+        <div class="process-step-title">1. Discover</div>
+        <div class="process-step-desc">We discuss your goals, needs, and ideas to lay a solid foundation.</div>
+      </div>
+      <div class="process-step">
+        <i class="fas fa-pencil-ruler"></i>
+        <div class="process-step-title">2. Design</div>
+        <div class="process-step-desc">I create clean frameworks and beautiful, sample designs for you to review.</div>
+      </div>
+      <div class="process-step">
+      <i class="fas fa-handshake"></i>
+      <div class="process-step-title">3. Agreement</div>
+      <div class="process-step-desc">You choose your favourite design after multiple revisions , and we come to a <b>flexible</b> agreement</div>
+      </div>
+      <div class="process-step">
+        <i class="fas fa-lock"></i>
+        <div class="process-step-title">4. Finalize</div>
+        <div class="process-step-desc">After everything is sorted , we seal the deal.</div>
+      </div>
+      <div class="process-step">
+        <i class="fas fa-rocket"></i>
+        <div class="process-step-title">5. Launch</div>
+        <div class="process-step-desc">Your product is delivered to you ,  as promised . You have your share of satisfaction and I , my share of profit . </div>
+      </div>
+    </div>
+  </section>
+  <section id="testimonials">
+    <h2>Testimonials</h2>
+    <div class="testimonials-list">
+      <div class="testimonial">
+        <img src="https://i.postimg.cc/9f6dxLfR/wa-919836630045-dp.jpg" alt="Client 1" class="testimonial-avatar">
+        <div class="testimonial-text">
+          Absolutely exceeded my expectations! I had wonderful customer service even after repeated revision requests . Absolutely loved the logo and even made it an official staff uniform . Highly recommended!
+        </div>
+        <div class="testimonial-name">Rahul Panja</div>
+        <div class="testimonial-role">Owner, Panja Service Center</div>
+        <div class="testimonial-stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+      </div>
+      <div class="testimonial">
+        <img src="https://i.postimg.cc/bNTN3gT6/IMG-20250530-WA0018.jpg" alt="Client 2" class="testimonial-avatar">
+        <div class="testimonial-text">
+          Great communication and beautiful results. Would hire again in a heartbeat!
+        </div>
+        <div class="testimonial-name">Lisa Ghosh</div>
+        <div class="testimonial-role">Owner , Mahakali Ironcraft Works</div>
+        <div class="testimonial-stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
+        </div>
+      </div>
+      <div class="testimonial">
+        <img src="https://i.postimg.cc/Qd2J8c9r/IMG-20250531-WA0000.jpg" alt="Client 3" class="testimonial-avatar">
+        <div class="testimonial-text">
+          A master of minimalism and performance. Our event flyer not only got a lot of attention but also gave a kickstart to the client number in our startup business ! Totally loved it!
+        </div>
+        <div class="testimonial-name">Reetam Dey</div>
+        <div class="testimonial-role">Local startup owner</div>
+        <div class="testimonial-stars">
+          <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section id="contact">
+    <h2>Contact</h2>
+    <div class="contact-info">
+      <span><i class="fas fa-handshake"></i> Ready to start your project? Let's talk.</span>
+      <span>
+        <a href="mailto:itzddinanutshell@gmail.com"><i class="fas fa-envelope"></i>Email me</a>
+      </span>
+      <span>
+        Or DM me on <a href="https://linkedin.com/in/yourusername" target="_blank"><i class="fab fa-linkedin"></i>LinkedIn</a> or <a href="https://instagram.com/forged_in_fire__" target="_blank"><i class="fab fa-instagram"></i>Instagram</a>
+      </span>
+    </div>
+   <form action="https://formsubmit.co/itzddinanutshell@gmail.com" method="POST">
+   <input type="text" name="name" placeholder="Your Name" required>
+   <input type="email" name="email" placeholder="Your Email" required>
+   <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
+   <button type="submit"><i class="fas fa-paper-plane"></i> Send Message</button>
+   </form>
+  </section>
+  <button id="darkModeToggle">
+  <i class="fas fa-moon"></i>
+  </button>
+  <footer>
+    <div class="footer-socials">
+      <a href="https://github.com/yourusername" title="GitHub" target="_blank"><i class="fab fa-github"></i></a>
+      <a href="https://wa.me/9830370896" title="Whatsapp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+      <a href="https://instagram.com/forged_in_fire__" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="mailto:your.itzddinanutshell@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+    </div>
+    &copy; 2025 Your Website. All rights reserved.
+  </footer>
+  <button id="backToTop" title="Back to top"> <i  class="fas fa-arrow-up"></i></button>
+  <script>
+    const navToggle = document.getElementById('nav-toggle');
+    const navLinks = document.getElementById('nav-links');
+    navToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        if(window.innerWidth <= 700) navLinks.classList.remove('open');
+      });
+    });
+    const sections = document.querySelectorAll('section');
+    const navItems = document.querySelectorAll('.nav-links a');
+    window.addEventListener('scroll', () => {
+      let current = '';
+      sections.forEach(section => {
+        const sectionTop = section.offsetTop - 85;
+        if (pageYOffset >= sectionTop) {
+          current = section.getAttribute('id');
+        }
+      });
+      navItems.forEach(a => {
+        a.classList.remove('active');
+        if(a.getAttribute('href') === '#' + current) a.classList.add('active');
+      });
+    });
+  </script>
+  <script>
+  // Show the button when scrolled down 100px
+  window.onscroll = function() {
+  const btn = document.getElementById("backToTop");
+  if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+  btn.style.display = "block";
+  } else {
+  btn.style.display = "none";
+  }
+  };
+  document.getElementById("backToTop").addEventListener("click", function() {
+  window.scrollTo({
+  top: 0,
+  behavior: "smooth"
+  });
+  });
+  </script>
+  <script>
+  const toggleButton = document.getElementById('darkModeToggle');
+  const icon = toggleButton.querySelector('i');
+  
+  toggleButton.addEventListener('click', () => {
+  document.body.classList.toggle('dark-mode');
+  
+  // Swap icons
+  if (document.body.classList.contains('dark-mode')) {
+  icon.classList.remove('fa-moon');
+  icon.classList.add('fa-sun');
+  } else {
+  icon.classList.remove('fa-sun');
+  icon.classList.add('fa-moon');
+  }
+  });
+  </script>
+</body>
+</html>
